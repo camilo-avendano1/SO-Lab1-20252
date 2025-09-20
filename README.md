@@ -1,152 +1,285 @@
+# Programa Reverse
 
-# Práctica 1 de laboratorio - Introducción al lenguaje C
+## Información del Proyecto
 
-> ## Objetivos
-> * Aprender a codificar programas usando el lenguaje C a nivel básico e intermedio.
-> * Aprender a usar las herramientas básicas para desarrollar aplicaciones en un ambiente de desarrollo linux.
+**Participantes:**
 
-## Herramientas necesarias
+- Juan Camilo Avendaño Rodriguez- ID 1193585383
+- Jose Fernando Waldo Rojas - ID: 1004807096
 
-Para trabajar en el laboratorio se necesita tener una máquina con un sistema operativo Linux instalado de manera nativa, mediante máquina virtual o en su defecto una máquina con MacOS. Si usted posee una máquina con Windows y no cumple el requisito anterior, la recomentación es que instale la última versión del [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux). Para llevar a cabo esto último consulte los siguientes enlaces:
-1. **Entrenamiento: Introducción a Subsistema de Windows para Linux (WSL)** ([link](https://learn.microsoft.com/es-es/training/modules/wsl-introduction/))
-2. **Configurar un entorno de desarrollo de WSL** ([link](https://learn.microsoft.com/es-es/windows/wsl/setup/environment))
-3. **Ejecución de aplicaciones de GUI de Linux en el Subsistema de Windows para Linux**([link](https://learn.microsoft.com/es-es/windows/wsl/tutorials/gui-apps)) 
+**Fecha:** Septiembre 2025  
+**Curso:** Sistemas Operativos
 
-## Primeros pasos
+## Descripción
 
-Con el fin de incentivar el trabajo en equipo y el uso de repositorios, antes de comenzar a trabajar en esta práctica, se recomienda que lleve a cabo los siguientes pasos:
-* Uno de los integrantes debe realizar un fork de este repositorio.
+El programa `reverse` es una utilidad que lee líneas de texto desde un archivo o entrada estándar y las imprime en orden inverso. Es decir, la última línea leída se imprime primero, y la primera línea leída se imprime al final.
 
-  ![fork](fork.png)
+## Funcionalidades
 
-* La persona que haga el fork se debe encargar de agregar como colaborador al compañero de trabajo con el fin de que la modificación del repositorio sea hecha grupalmente.
+El programa puede ejecutarse de tres formas diferentes:
 
-* Cada uno de los integrantes del equipo puede hacer una copia local del laboratorio con el fin de colaborar en su desarrollo.
+1. **Sin argumentos**: Lee desde entrada estándar (teclado) y escribe a salida estándar (pantalla)
+2. **Un argumento**: Lee desde archivo especificado y escribe a salida estándar
+3. **Dos argumentos**: Lee desde archivo de entrada y escribe a archivo de salida
 
-No olvide ir actualizando la práctica del laboratorio a medida que vaya avanzando en esta. Para el caso, vaya llevando a cabo los test proporcionados (tal y como se explicó en el laboratorio). Estos test serán el indicativo de cómo va su trabajo. 
+## Compilación
 
-Una vez hecho lo anterior puede empezar el desarrollo de la práctica.
+Para compilar el programa, ejecute el siguiente comando en la terminal:
 
-### Conceptos importantes
-
-Para llevar a cabo el procedimiento descrito anteriormente es importante que tenga conocimientos básicos de manejo de [github](https://en.wikipedia.org/wiki/GitHub). A continuación, se comparte material de utilidad a cerca del uso de esta herramienta con el fin de que aplique lo que aquí se muestra:
-1. **Introducción a Git** ([link](https://learn.microsoft.com/es-es/training/modules/intro-to-git/)): Tutorial de Microsoft Learn sobre el manejo de la utilidad ```git```
-2. **Introducción a GitHub** ([link](https://learn.microsoft.com/es-es/training/modules/introduction-to-github/)): Tutorial de Microsoft Learn sobre ```github```
-3. **Laboratorio git parte 1** ([link](https://github.com/dannymrock/UdeA-SO-Lab/tree/master/lab0/lab0a/git_basico)): Apuntes de clase viejos sobre el manejo del git.
-
-Además del manejo de la herramienta git, es sumamente importante tener un conocimiento sobre el manejo de la línea de comandos de linux. En los siguientes enlaces puede consultar algunos tutoriales sobre este tema: 
-1. **Introducción a Git** ([link](https://learn.microsoft.com/es-es/training/modules/intro-to-git/))
-2. **Introducción a GitHub** ([link](https://learn.microsoft.com/es-es/training/modules/introduction-to-github/))
-
-## Recursos lenguaje C
-
-A lo largo de todo el curso (teoría y práctica) se empleará el lenguaje C. Como este es un lenguaje poco usado en el ámbito de la carrera de Ingenieria de Sistemas se abordará de manera introductoria este lenguaje a lo largo del laboratorio con el fin de que usted se familiarice.
-
-Los conceptos básicos relacionados con este lenguaje son bastante similares a lo que se usan en otros lenguajes de programación empleados a lo largo de su carrera (como python y java); sin embargo, hay unos cuantos temas que le resultaran nuevos. Es en estos últimos en los que haremos énfasis. A continuación, se muestran algunos recursos que le serán de utilidad:
-1. **Apuntes de clase sobre el lenguaje C** ([link](https://github.com/dannymrock/UdeA-SO-Lab/tree/master/lab0/lab0b)): Apuntes del curso sobre los principales conceptos del lenguaje C que se van a emplear. 
-2. **Stanford CS Education Library** ([link](http://cslibrary.stanford.edu/)): Material de Computer Science de la universidad de Stanford.
-3. **The GNU C Reference Manual** ([link](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html)): Manual de referencia del lenguaje C de la GNU.
-4. **C for Java Programmers: Tutorial** ([link](https://www.cs.rochester.edu/u/ferguson/csc/c/tutorial/)): Tutorial de la Universidad de Ronchester sobre el lenguaje C para programadores de Java.
-5. **The C programming Languaje** ([link](http://cslabcms.nju.edu.cn/problem_solving/images/c/cc/The_C_Programming_Language_%282nd_Edition_Ritchie_Kernighan%29.pdf)): Libro del lenguaje C de Dennis Ritchie y Brian Kernighan.
-6. **C for Python Programmers** ([link](https://realpython.com/c-for-python-programmers/)): Tutorial de Lenguaje C para programadores de Python de [real Python](https://realpython.com/)
-7. **C for Python Programmers** ([link](https://www.cs.toronto.edu/~patitsas/cs190/c_for_python.html)): Lenguaje C para programadores de Python de la universidad de Toronto.
-7. **Appendix 1: Chapter 1 for Java Programmers - Libro: Dive Into Systems** ([link](https://diveintosystems.org/book/Appendix1/index.html))
-
-A manera de resumen se presentan varias **Reference Sheets** ([link](reference_sheets/)). De estas se resalta la **C Reference Card (ANSI)** ([link](https://www.math.brown.edu/johsilve/ReferenceCards/CRefCard.v2.2.pdf))
-
-## Práctica
-
-> **Nota**: Esta práctica es una traducción de la práctica **Reverse** del libro del profesor Remzi. Esta traducción puede tener algunos errores y no ser fiel con lo que el autor quiere transmitir. Si desea leerla en inglés puede hacerlo en el siguiente ([enlace](https://github.com/remzi-arpacidusseau/ostep-projects/tree/master/initial-reverse)).
-
-### Antes de empezar
-
-Antes de empezar a desarrollar esta práctica, lea el [lab tutorial](http://pages.cs.wisc.edu/~remzi/OSTEP/lab-tutorial.pdf) el cual contiene algunos tips de utilidad para trabajar con en un entorno de programación. 
-
-Adicionalmente, se presenta el siguiente material con algunos ejemplos cuya comprensión le pueden ayudar a familiarizarse con todos los conceptos teorico-practicos necesarios para desarrollar la siguiente practica. A continuación se detalla el material de apoyo.
-* **Desarrollo de aplicaciones en lenguaje C usando Linux** ([link](ejemplos/lab_tutorial/))
-* **Ejemplos varios del lenguaje C** ([link](ejemplos/conceptos_c/))
-
-### Enunciado
-
-Esta práctica no es más que un simple calentamiento (warm-up) para familiarizarlo con la forma de trabajo en varios de los proyectos que se realizarán en el laboratorio. También sirve de punto de partida para empezar los primeros pasos con el lenguaje de programación C el cual se usará a lo largo del curso.
-
-Se pide que desarrollo un programa sencillo llamado `reverse` el cual se debe invocar siguiendo las instrucciones mostradas a continuación:
-
-```sh
-prompt> ./reverse
-prompt> ./reverse input.txt
-prompt> ./reverse input.txt output.txt
+```bash
+gcc -o reverse reverse.c
 ```
 
-En cada una de las instrucciones anteriomente mostradas se puede ver que el usuario ha tecleado el nombre del programa de inversión `reverse` (el `./` delante simplemente se refiere al directorio de trabajo actual directorio, llamado punto, referido como `.` y la barra `/` es un separador; así, en este directorio, se buscó un programa llamado `reverse`). Nótese que cada una de las instrucciones se invocaron de tres formas distintas:
-* En el caso la primera instrucción no se ingresó ningún argumento en la linea comandos.
-* En lo que respecta a la segunda instrucción se pasó un argumento de línea de comandos (un archivo de entrada, `input.txt`).
-* En la última instrucción se pasaron dos argumentos de línea de órdenes (un fichero de entrada y un fichero de salida `salida.txt`).
+## Formas de Ejecución
 
-Por ejemplo, si el archivo de entrada tiene el siguiente contenido:
+### 1. Lectura desde entrada estándar
 
-```
-hello
-this
-is 
-a file
+```bash
+./reverse
 ```
 
-El objetivo del programa de inversión `reverse` es leer los datos del archivo de entrada especificado e invertirlos; por lo tanto, las líneas se imprimirán en el orden del flujo de entrada. Así, para el ejemplo anterior, la salida debería ser:
+El usuario puede ingresar líneas de texto manualmente. Para terminar la entrada, presione `Ctrl+D` (EOF).
+
+### 2. Lectura desde archivo
+
+```bash
+./reverse input.txt
+```
+
+Lee el contenido del archivo `input.txt` y muestra las líneas en orden inverso en la pantalla.
+
+### 3. Lectura y escritura de archivos
+
+```bash
+./reverse input.txt output.txt
+```
+
+Lee el contenido de `input.txt` y escribe las líneas en orden inverso al archivo `output.txt`.
+
+## Ejemplo de Uso
+
+Si tenemos un archivo `entrada.txt` con el siguiente contenido:
 
 ```
-a file
-is
-this
-hello
+primera línea
+segunda línea
+tercera línea
+cuarta línea
 ```
 
-Las diferentes formas de invocar el archivo (mostradas enteriormente) corresponden a formas ligeramente diferentes de usar esta nueva y sencilla utilidad de Unix. Por ejemplo, cuando se invoca con dos argumentos de línea de comandos, el programa debe leer el archivo de entrada que proporciona el usuario y escribir la versión invertida de dicho archivo en el archivo de salida que proporciona el usuario.
+Al ejecutar (CTRL + D):
 
-Cuando se invoca con un solo argumento de línea de comando, el usuario proporciona el archivo de entrada, pero el archivo debe imprimirse en la pantalla. En los sistemas basados en Unix, imprimir en la pantalla es lo mismo que escribir en un archivo especial conocido como **salida estándar** o "stdout" para abreviar.
+```bash
+./reverse entrada.txt
+```
 
-Finalmente, cuando se invoca sin ningún argumento, su programa de inversión debe leer desde la **entrada estándar** (`stdin`), que es la entrada que ingresa un usuario, y escribir en la salida estándar (es decir, la pantalla).
+La salida será:
 
-Suena fácil, ¿verdad? Debería serlo. Pero hay algunos detalles...
+```
+cuarta línea
+tercera línea
+segunda línea
+primera línea
+```
 
+## Arquitectura del Programa
 
+### Estructura de Datos Utilizada
 
-## Detalles
+El programa utiliza una **lista enlazada** para almacenar las líneas leídas:
 
-### Suposiciones y errores
+```c
+typedef struct Node {
+    char *line;        // Puntero a la línea de texto
+    struct Node *next; // Puntero al siguiente nodo
+} Node;
+```
 
-- **La entrada es la misma que la salida:** Si el archivo de entrada y el archivo de salida son el mismo archivo, debe imprimir un mensaje de error "El archivo de entrada y salida deben diferir" y salir con el código de retorno 1.
+Esta estructura permite:
 
-- **Longitud de la cadena:** No puedes asumir nada sobre la longitud que debe tener una línea. Por lo tanto, es posible que tengas que leer en una línea de entrada muy larga...
+- Almacenar líneas de cualquier longitud
+- Agregar elementos dinámicamente
+- Invertir el orden fácilmente insertando al inicio
 
-- **Longitud del archivo:** No puedes asumir nada sobre la longitud del archivo, es decir, puede ser **MUY** largo.
+### Flujo de Ejecución Paso a Paso
 
-- **Archivos no válidos:** Si el usuario especifica un archivo de entrada o un archivo de salida, y por alguna razón, cuando intenta abrir dicho archivo (por ejemplo, `input.txt`) y falla, debe imprimir exactamente lo siguiente mensaje de error: `error: cannot open file 'input.txt'` y luego salir con el código de retorno 1 (es decir, llamar a `exit(1);`).
+1. **Inicialización**:
 
-- **Malloc falla:** Si llama a `malloc()` para asignar algo de memoria y malloc falla, debe imprimir el mensaje de error `malloc failed` y salir con el código de retorno 1.
+   - Se declaran variables para archivos de entrada y salida
+   - Se inicializa la lista enlazada como vacía (`head = NULL`)
 
-- **Demasiados argumentos pasados al programa:** Si el usuario ejecuta `reverse` con demasiados argumentos, imprima `usage: reverse <input> <output>` y salga con el código de retorno 1.
+2. **Procesamiento de argumentos**:
 
-- **Cómo imprimir mensajes de error:** Ante cualquier error, debe imprimir el error en la pantalla usando `fprintf()` y enviar el mensaje de error a `stderr` (error estándar) y no a `stdout` (salida estándar). Esto se logra en su código C de la siguiente manera: `fprintf(stderr, "whatever the error message is\n");`
+   - Se verifica el número de argumentos de línea de comandos
+   - Se valida que el archivo de entrada y salida sean diferentes (si aplica)
+   - Se abren los archivos correspondientes
 
-### Rutinas de utilidad
+3. **Lectura de datos**:
 
-Para salir, llame `exit(1)`, el número que se pasa a `exit()` indica al usuario si el programa ha devuelto un error (es decir, devuelve un valor distinto de cero) o ha salido limpiamente (es decir, devuelve 0).
+   - Se lee línea por línea usando `getline()`
+   - Cada línea se almacena en un nuevo nodo de la lista
+   - Los nodos se insertan al inicio de la lista (inversión automática)
 
-Para leer el archivo de entrada, las siguientes rutinas le harán la vida más fácil: `fopen()`, `getline()`, y `fclose()`.
+4. **Escritura de resultados**:
 
-Para desplegar (en la pantalla, o en una archivo), use la función `fprintf()`.  Tenga en cuenta que es fácil escribir en la salida estándar pasando `stdout` a `fprintf()`; también es fácil escribir en un archivo pasando el `FILE *` devuelto por `fopen`, por ejemplo, `fp=fopen(...); fprintf(fp, ...);`.
+   - Se recorre la lista desde el inicio
+   - Se imprime cada línea en el archivo/pantalla de salida
+   - Se libera la memoria de cada nodo procesado
 
-La rutina `malloc()` es útil para reserva de memoria. ¿Quizás para añadir elementos a una lista?
+5. **Limpieza**:
+   - Se cierran los archivos abiertos
+   - Se libera toda la memoria reservada
 
-Si no sabe como utilizar estas funciones, consulte el manual (`man`). Por ejemplo, escribir en la terminal `man malloc` le mostrará bastante información sobre `malloc`
+## Funciones Clave Utilizadas
 
-### Tips
+### Funciones del Sistema
 
-**Start small, and get things working incrementally**  - **Empieze poco a poco y haga que las cosas funcionen gradualmente**: Por ejemplo, primero haga un programa que simplemente lea en el archivo de entrada, una línea a la vez, y luego imprima lo que se lea. Luego, poco a poco vaya añadiendo características y probándolas sobre la marcha.
+#### `getline()`
 
-Por ejemplo, la forma de escribir este código es primero escribir algún fragmento de óodigo que use `fopen()`, `getline()` y `fclose()` para leer el archivo de entrada y luego imprimirlo. Después, escribir el código para almacenar cada línea leída en la lista enlazada y verificar que esto funciona correctamente. A continuación, se imprime la lista en orden inverso. Posteriormente, asegurarse de que los casos de error son manejados y así sucesivamente...
+```c
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+```
 
-**Testing is critical** - **Las pruebas son fundamentales**: Un gran programador dijo que hay que escribir de cinco a diez líneas de código de prueba por cada línea de código que se produzca; probar el código para asegurarse de que funciona es crucial. Escriba pruebas para ver si el código maneja todos los casos que este debería tratar. Se debe ser lo más exhaustivo posible. Por supuesto, a la hora de calificar los proyectos, esto será una regla. Por lo tanto, es mejor que encuentre los errores primero, antes de que lo hagamos nosotros.
+- **Propósito**: Lee una línea completa desde un archivo, incluyendo el carácter de nueva línea
+- **Ventaja**: Maneja automáticamente líneas de cualquier longitud, reservando memoria dinámicamente
+- **Uso en el programa**: Leer cada línea del archivo de entrada sin límites de tamaño
 
-**Keep old versions around** - **Conserve las versiones antiguas**: Mantenga copias de versiones anteriores de su programa, ya que a veces se pueden introducir errores y no ser capaz de corregirlos fácilmente. Una forma sencilla de hacer esto es mantener copias, haciendo explícitamente copias del archivo en varios puntos durante el desarrollo. Por ejemplo, suponiendo que tenga una versión simple de `reverse.c` funcionando (por ejemplo, que sólo lea el archivo); use `cp reverse.c reverse.v1.c` para hacer una copia en el archivo `reverse.v1.c`. Los desarrolladores más sofisticados usan sistemas de control de versiones git (quizás a través de github); vale la pena aprender una herramienta así, ¡así que hágalo!
+#### `fopen()` y `fclose()`
+
+```c
+FILE *fopen(const char *pathname, const char *mode);
+int fclose(FILE *stream);
+```
+
+- **Propósito**: Abrir y cerrar archivos respectivamente
+- **Modos utilizados**:
+  - `"r"`: Lectura (archivo de entrada)
+  - `"w"`: Escritura (archivo de salida)
+- **Uso en el programa**: Gestionar archivos de entrada y salida según los argumentos
+
+#### `malloc()` y `free()`
+
+```c
+void *malloc(size_t size);
+void free(void *ptr);
+```
+
+- **Propósito**: Reservar y liberar memoria dinámica
+- **Uso en el programa**:
+  - Crear nodos de la lista enlazada
+  - Almacenar copias de las líneas leídas
+  - Evitar fugas de memoria liberando todo lo reservado
+
+#### `fprintf()`
+
+```c
+int fprintf(FILE *stream, const char *format, ...);
+```
+
+- **Propósito**: Escribir texto formateado a un archivo específico
+- **Streams utilizados**:
+  - `stdout`: Salida estándar (pantalla)
+  - `stderr`: Error estándar (mensajes de error)
+  - Archivos abiertos con `fopen()`
+
+### Funciones Personalizadas
+
+#### `add_line()`
+
+```c
+Node* add_line(Node *head, char *line);
+```
+
+- **Propósito**: Agregar una nueva línea al inicio de la lista enlazada
+- **Funcionamiento**:
+  1. Reserva memoria para un nuevo nodo
+  2. Copia la línea recibida
+  3. Conecta el nuevo nodo al inicio de la lista
+  4. Retorna el nuevo inicio de la lista
+- **Resultado**: Inversión automática del orden de las líneas
+
+#### `print_and_free_list()`
+
+```c
+void print_and_free_list(Node *head, FILE *output);
+```
+
+- **Propósito**: Imprimir todas las líneas de la lista y liberar memoria
+- **Funcionamiento**:
+  1. Recorre la lista desde el inicio
+  2. Imprime cada línea en el archivo de salida
+  3. Libera la memoria del nodo y su línea
+  4. Avanza al siguiente nodo
+- **Resultado**: Salida en orden inverso y limpieza de memoria
+
+## Manejo de Errores
+
+El programa implementa un robusto manejo de errores para los siguientes casos:
+
+1. **Archivo de entrada igual al de salida**:
+
+   ```
+   El archivo de entrada y salida deben diferir
+   ```
+
+2. **Error al abrir archivos**:
+
+   ```
+   error: cannot open file 'nombre_archivo'
+   ```
+
+3. **Fallo en reserva de memoria**:
+
+   ```
+   malloc failed
+   ```
+
+4. **Demasiados argumentos**:
+   ```
+   usage: reverse <input> <output>
+   ```
+
+Todos los errores se imprimen a `stderr` y el programa termina con código de salida 1.
+
+## Consideraciones de Implementación
+
+### Manejo de Memoria
+
+- Se utiliza memoria dinámica para manejar archivos de cualquier tamaño
+- Cada línea se almacena independientemente sin límite de longitud
+- Se libera toda la memoria reservada antes de terminar
+
+### Eficiencia
+
+- La lista enlazada permite inserción O(1) al inicio
+- La impresión es O(n) recorriendo una vez la lista
+- El uso de memoria es proporcional al tamaño del archivo
+
+## Pruebas Recomendadas
+
+Para verificar el correcto funcionamiento del programa, se recomienda probar:
+
+1. **Casos básicos**:
+
+   - Archivo pequeño con pocas líneas
+   - Archivo vacío
+   - Entrada desde teclado
+
+2. **Casos límite**:
+
+   - Archivos muy grandes
+   - Líneas muy largas
+   - Archivos con caracteres especiales
+
+3. **Casos de error**:
+
+   - Archivos inexistentes
+   - Archivos de entrada y salida idénticos
+   - Permisos insuficientes
+
+4. **Casos extremos**:
+   - Archivo de una sola línea
+   - Líneas vacías
+   - Archivo solo con espacios en blanco
+
+#
